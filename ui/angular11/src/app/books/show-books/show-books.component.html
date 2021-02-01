@@ -1,0 +1,23 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>BookId</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Release Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of BookList">
+            <td>{{dataItem.BookId}}</td>
+            <td>{{dataItem.BookName}}</td>
+            <td>{{dataItem.AuthorName}}</td>
+            <td>{{dataItem.ReleaseDate}}</td>
+            <td>
+                <button type="button" class="btn btn-light mr-1">
+                    Add
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
