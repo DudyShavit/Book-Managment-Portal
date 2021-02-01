@@ -18,6 +18,10 @@ export class SharedService {
     return this.http.post(this.APIUrl+'/Books',val);
   }
 
+  updateBook(val:any){
+    return this.http.put(this.APIUrl+'/Books',val);
+  }
+
   getAllBookNames():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/books/GetAllBookNames'); 
   }

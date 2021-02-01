@@ -1,3 +1,28 @@
+<!-- Button trigger modal -->
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary me-md-2" type="button"
+    data-bs-toggle="modal" data-bs-target="#exampleModal"
+    (click) = "addClick()"
+    data-backdrop="static" data-keyboard="false"        
+    >Add Book</button>    
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="btn-close" 
+          data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-book [book] = "book" *ngIf="ActivateAddEditBookComp"></app-add-book>
+        </div>
+      </div>
+    </div>
+  </div>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -5,6 +30,7 @@
             <th>Book Name</th>
             <th>Author Name</th>
             <th>Release Date</th>
+            <th>Options</th>
         </tr>
     </thead>
     <tbody>
@@ -14,8 +40,14 @@
             <td>{{dataItem.AuthorName}}</td>
             <td>{{dataItem.ReleaseDate}}</td>
             <td>
+                <button type="button" class="btn btn-light mr-1"
+                (click) = "editClick(dataItem)"
+                data-backdrop="static" data-keyboard="false"
+                >
+                    Edit
+                </button>
                 <button type="button" class="btn btn-light mr-1">
-                    Add
+                    Delete
                 </button>
             </td>
         </tr>
